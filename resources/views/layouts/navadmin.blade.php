@@ -7,8 +7,9 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <title>Pembayaran SPP </title>
 
     <meta name="description" content="" />
 
@@ -144,41 +145,6 @@
                             <div data-i18n="Dashboards">Dashboards</div>
                             <div class="badge bg-danger rounded-pill ms-auto">5</div>
                         </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html"
-                                    target="_blank" class="menu-link">
-                                    <div data-i18n="CRM">CRM</div>
-                                    <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-                                </a>
-                            </li>
-                            <li class="menu-item active">
-                                <a href="index.html" class="menu-link">
-                                    <div data-i18n="Analytics">Analytics</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
-                                    target="_blank" class="menu-link">
-                                    <div data-i18n="eCommerce">eCommerce</div>
-                                    <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html"
-                                    target="_blank" class="menu-link">
-                                    <div data-i18n="Logistics">Logistics</div>
-                                    <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-academy-dashboard.html"
-                                    target="_blank" class="menu-link">
-                                    <div data-i18n="Academy">Academy</div>
-                                    <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <!-- Layouts -->
@@ -263,10 +229,10 @@
                     </li>
                     <!-- Apps -->
                     <li class="menu-item">
-                        <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-email.html"
-                            target="_blank" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-envelope"></i>
-                            <div data-i18n="Email">Email</div>
+                        <a href="{{route('kelas.index')}}"
+                         class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-store"></i>
+                            <div data-i18n="Email">Kelas</div>
                             <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
                         </a>
                     </li>
@@ -686,17 +652,9 @@
 
                 <!-- / Navbar -->
 
-                <!-- Content wrapper -->
                 <div class="content-wrapper">
-                    <!-- Content -->
-
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="row">
-                            <div class="col-lg-8 mb-4 order-0">
                                 @yield('content')
                             </div>
-                        </div>
-                    </div>
                     <!-- / Content -->
 
                     <!-- Footer -->
@@ -740,10 +698,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-        <a href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/" target="_blank"
-            class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('dashboard/assets/vendor/libs/jquery/jquery.js') }}"></script>
@@ -764,6 +719,22 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        //message with toastr
+        @if(session()->has('success'))
+
+            toastr.success('{{ session('success') }}', 'BERHASIL!');
+
+        @elseif(session()->has('error'))
+
+            toastr.error('{{ session('error') }}', 'GAGAL!');
+
+        @endif
+    </script>
 
 </body>
 

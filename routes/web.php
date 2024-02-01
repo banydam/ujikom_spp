@@ -42,6 +42,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
 //route resource
 Route::resource('/admin/kelas', \App\Http\Controllers\KelasController::class);
+Route::resource('/admin/spp', \App\Http\Controllers\SppController::class);
+Route::resource('/admin/siswa', \App\Http\Controllers\SiswaController::class);
 });
 
 /*------------------------------------------
